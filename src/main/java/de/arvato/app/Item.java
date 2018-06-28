@@ -54,10 +54,16 @@ public class Item {
 /*------------------------getOptimalValue()------------------------------------------------*/
 	public static int getOptimalValue(float money, List<Item>items) {
 		int res = 0 ;
+		/*test if we have no money or if Florian has no Flöhe*/
 		if((money <= 0) || (items.size() <=0) )  {
 			System.out.println("Kindly ask Florian to fill his List, \nor try to increase the money amount :) ");
 			return -1 ;
-		} 
+		}
+		/*test if the min price for the Floh is larger than the money we have, then we won't buy any Floh */
+		if(money < Float.parseFloat(items.get(0).getPrice())) {
+			System.out.println("Maybe we don't have enough money!");
+			return 0 ;
+		}
         List<Integer> optimalList1 = new ArrayList<Integer>();/* list of all potential combination*/
         List<OptimalValue> optimalValueList = new ArrayList <OptimalValue>(); /*this is just to hold the index of the optimal value, so we can print the combination of optimal value  in console*/
         List<Float> ratingList1 = new ArrayList<Float>(); /*list containing sum of rating for the highest configurations */
@@ -229,6 +235,10 @@ public class Item {
 		}
 		public int hashCode() {
 		return Objects.hash(super.hashCode(), name);
+		}
+		@Override
+		public String toString() {
+			return "Item [name=" + name + ", price=" + price + ", rating=" + rating + "]";
 		}
 }
 
