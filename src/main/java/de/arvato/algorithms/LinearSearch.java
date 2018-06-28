@@ -25,7 +25,7 @@ public class LinearSearch implements SearchAlgorithm {
 		map1.remove("commonValue");	/*remove unused keys*/
 		map1.remove("uniqueValue");
 		map1.put("onlyInList1", onlyInList1);
-		map1.put("onlyinList2", onlyInList2);
+		map1.put("onlyInList2", onlyInList2);
 		map1.put("inBothLists", inBothLists);
 		return map1;
 		
@@ -66,5 +66,14 @@ public class LinearSearch implements SearchAlgorithm {
 		return map1;
 	}
 
+	/*-------------------------------------------------Performance Method--------------------------------------*/
+	public Map<String, List<String>> performance (List<String> list1, List<String> list2){
+			
+		for(int i=0 ; i< 1000000; i++) {
+				search(list1,list2);
+			}
+		
+		return null;	
+	}
 }
 

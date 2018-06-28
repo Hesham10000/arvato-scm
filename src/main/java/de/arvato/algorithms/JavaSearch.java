@@ -27,5 +27,13 @@ public class JavaSearch implements SearchAlgorithm {
 		return map1;
 	}
 	
+	public Map<String, List<String>> performance (List<String> list1, List<String> list2){
+		
+		for(int i=0 ; i< 1000000; i++) {
+				search(list1,list2);
+			}
+		
+		return null;	
+	}
 
 }
